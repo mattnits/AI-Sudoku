@@ -5,12 +5,12 @@ I got this idea from a project I did in my Artificial Intelligence class which w
 
 ORIGINAL FEATURES
 
-AI that solves puzzles
-User inputs puzzles they want to solve (Removed in this project)
-Displayed in command line (Removed in this project)
+- AI that solves puzzles
+- User inputs puzzles they want to solve (Removed in this project)
+- Displayed in command line (Removed in this project)
 
 NEW FEATURES
 
-User friendly GUI (In progress)
-Race against AI with different types of difficulty (Coming)
-Step by step AI solutions (Coming)
+- User friendly GUI (In progress)
+- Race against AI with different types of difficulty (Coming)
+- Step by step AI solutions (Coming)
