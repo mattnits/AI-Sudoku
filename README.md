@@ -14,3 +14,4 @@ NEW FEATURES
 - User friendly GUI (In progress)
 - Race against AI with different types of difficulty (Coming)
 - Step by step AI solutions (Coming)
+- Different puzzle levels of varying difficulty (Coming)
