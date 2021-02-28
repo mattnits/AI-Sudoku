@@ -6,8 +6,8 @@ I got this idea from a project I did in my Artificial Intelligence class which w
 ORIGINAL FEATURES
 
 - AI that solves puzzles
-- User inputs puzzles they want to solve (Removed in this project)
-- Displayed in command line (Removed in this project)
+- User inputs puzzles they want to solve
+- Displayed in command line
 
 NEW FEATURES
 
