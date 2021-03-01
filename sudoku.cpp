@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <stdlib.h>
-#include "llist.c"
+#include "llist.cpp"
 
 // To do:
 // Change array to be dynamic (allow bigger/smaller boards)
