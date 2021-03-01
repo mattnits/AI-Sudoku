@@ -2,6 +2,15 @@
 #include <fstream>
 #include <string>
 #include <stdlib.h>
+#include "llist.c"
+
+// To do:
+// Change array to be dynamic (allow bigger/smaller boards)
+// 
+// 
+// 
+// 
+
 
 class Sudoku {
     public:
@@ -68,11 +77,27 @@ class Sudoku {
         }
 };
 
+class AI_Sudoku: public Sudoku {
+    public:
+        int ai_board[9][9][9];
+        AI_Sudoku(Sudoku puzzle) {
+
+        }
+    private:
+        int binary_search(int list[], int val) {
+            return -1;
+        }
+};
+
 
 
 int main() {
-    Sudoku s;
-    s.printBoard();
+    //Sudoku s;
+    //s.printBoard();
+
+    NODE *startp = NULL;
+
+    
     
     return 0;
 }
