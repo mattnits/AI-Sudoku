@@ -11,7 +11,7 @@ typedef struct node {
 
 } NODE;
 
-NODE *create_node(int val);
+NODE *create_node(int, NODE **);
 
 void display(NODE *start);
 

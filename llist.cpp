@@ -1,10 +1,15 @@
 #include "llist.h"
 #include <iostream>
 
-NODE *create_node(int val) {
+NODE *create_node(int val, NODE **start = NULL) {
     NODE *node = (NODE*)malloc(sizeof(NODE));
     node->val = val;
-    node->start = NULL;
+    if (start == NULL) {
+        node->start = NULL;
+    }
+    else {
+        node->start = *start;
+    }
     node->next = NULL;
 
     return node;

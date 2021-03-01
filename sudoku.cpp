@@ -81,31 +81,35 @@ class AI_Sudoku: public Sudoku {
     public:
         NODE ai_board[9];
         AI_Sudoku(Sudoku puzzle) {
-            // int i = 0;
-            // for (i = 0; i < 9; i++) {
-            //     ai_board[i] = "1";
-            // }
+            int i = 0;
+            for (i = 0; i < 9; i++) {
+                ai_board[i] = *create_node(i);
+            }
         }
 };
 
 
 
 int main() {
-    //Sudoku s;
-    //s.printBoard();
+    // Sudoku s;
+    // s.printBoard();
 
     // NODE *startp = NULL;
+    // insert(&startp, 5);
     
     // NODE ai_board[9];
-    // ai_board[0] = *create_node(1);
+    // ai_board[0] = *create_node(1, &startp);
+    // ai_board[1] = *create_node(2);
 
-    // std::cout << ai_board[0].val;
+    // std::cout << ai_board[0].val << std::endl;
+    // std::cout << ai_board[1].val << std::endl;
+    // std::cout << ai_board[0].start->val << std::endl;
 
     // NODE *temp = NULL;
     // temp = &ai_board[0];
     // insert(&temp, 2);
 
-    // display(&ai_board[0]);
+    //display(&ai_board[0]);
     
     
     return 0;
