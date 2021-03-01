@@ -79,13 +79,12 @@ class Sudoku {
 
 class AI_Sudoku: public Sudoku {
     public:
-        int ai_board[9][9][9];
+        NODE ai_board[9];
         AI_Sudoku(Sudoku puzzle) {
-
-        }
-    private:
-        int binary_search(int list[], int val) {
-            return -1;
+            // int i = 0;
+            // for (i = 0; i < 9; i++) {
+            //     ai_board[i] = "1";
+            // }
         }
 };
 
@@ -95,8 +94,18 @@ int main() {
     //Sudoku s;
     //s.printBoard();
 
-    NODE *startp = NULL;
+    // NODE *startp = NULL;
+    
+    // NODE ai_board[9];
+    // ai_board[0] = *create_node(1);
 
+    // std::cout << ai_board[0].val;
+
+    // NODE *temp = NULL;
+    // temp = &ai_board[0];
+    // insert(&temp, 2);
+
+    // display(&ai_board[0]);
     
     
     return 0;

@@ -7,9 +7,11 @@
 typedef struct node {
     int val;
 	struct node *next;
+    struct node *start;
 
 } NODE;
 
+NODE *create_node(int val);
 
 void display(NODE *start);
 
