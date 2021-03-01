@@ -1,9 +1,18 @@
 #include "llist.h"
 
+NODE *create_node(int val) {
+    NODE *node = (NODE*)malloc(sizeof(NODE));
+    node->val = val;
+    node->start = NULL;
+    node->next = NULL;
+
+    return node;
+}
 
 void insert(NODE **startp, int val) {
     NODE *node = (NODE*)malloc(sizeof(NODE));
     node->val = val;
+    node->start = NULL;
     NODE *current = *startp;
     NODE *prev = NULL;
     int flag = 0;
@@ -15,13 +24,13 @@ void insert(NODE **startp, int val) {
     }
     else {
         while (current != NULL) {
-            std::cout << "Vals: " << current->val << std::endl;
+            //std::cout << "Vals: " << current->val << std::endl;
             if (current->val >= val) {
                 if (prev == NULL) {
                     prev = node;
                     prev->next = current;
                     *startp = prev;
-                    std::cout << "test1" << std::endl;
+                    //std::cout << "test1" << std::endl;
                 }
                 else if (current->next != NULL) {
                     prev->next = node;
@@ -32,7 +41,7 @@ void insert(NODE **startp, int val) {
                     prev->next = node;
                     node->next = current;
                     current->next = NULL;
-                    std::cout << "test3" << std::endl;
+                    //std::cout << "test3" << std::endl;
                 }
                 
                 break;
@@ -40,7 +49,7 @@ void insert(NODE **startp, int val) {
             else if (current->next == NULL) {
                 node->next = NULL;
                 current->next = node;
-                std::cout << "test3" << std::endl;
+                //std::cout << "test3" << std::endl;
             }
             else {
                 prev = current;
@@ -57,6 +66,11 @@ int remove_index(NODE **startp, int val) {
     NODE *current = *startp;
 	NODE *prev = NULL;
     int flag = 0;
+
+    if ((*startp)->start != NULL) {
+        std::cout << "ERROR, PLEASE REMOVE NESTED LIST";
+        return 1;
+    }
 	
 	if (current != NULL) {
         while (current != NULL) {
