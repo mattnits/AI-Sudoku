@@ -1,16 +1,24 @@
 #include "llist.h"
 #include <iostream>
 
-NODE *create_node(int val) {
+NODE *create_node(int val, NODE *start = NULL) {
     NODE *node = (NODE*)malloc(sizeof(NODE));
     node->val = val;
-    node->start = NULL;
+    node->end = NULL;
+    if (start == NULL) {
+        node->start = NULL;
+    }
+    else {
+        node->start = start;
+        node->end = start;
+        node->end->next = NULL;
+    }
     node->next = NULL;
 
     return node;
 }
 
-void insert(NODE **startp, int val) {
+void insert_sorted(NODE **startp, NODE **endp, int val) {
     NODE *node = (NODE*)malloc(sizeof(NODE));
     node->val = val;
     node->start = NULL;
@@ -21,6 +29,7 @@ void insert(NODE **startp, int val) {
     if (current == NULL) {
         node->next = NULL;
         *startp = node;
+        *endp = node;
         
     }
     else {
@@ -36,7 +45,7 @@ void insert(NODE **startp, int val) {
                 else if (current->next != NULL) {
                     prev->next = node;
                     node->next = current;
-                    std::cout << "test2" << std::endl;
+                    //std::cout << "test2" << std::endl;
                 }
                 else if (current->next == NULL) {
                     prev->next = node;
@@ -50,6 +59,7 @@ void insert(NODE **startp, int val) {
             else if (current->next == NULL) {
                 node->next = NULL;
                 current->next = node;
+                *endp = node;
                 //std::cout << "test3" << std::endl;
             }
             else {
@@ -59,11 +69,26 @@ void insert(NODE **startp, int val) {
             
         }
     }
-
-    
 }
 
-int remove_index(NODE **startp, int val) {
+void insert_unsorted(NODE **startp, NODE **endp, int val) {
+    NODE *node = (NODE*)malloc(sizeof(NODE));
+    node->val = val;
+    node->start = NULL;
+
+    if ((*endp) != NULL) {
+        (*endp)->next = node;
+        node->next = NULL;
+        (*endp) = node;
+    }
+    else {
+        node->next = NULL;
+        *startp = node;
+        *endp = node;
+    }
+}
+
+int remove_index(NODE **startp, NODE **endp, int val) {
     NODE *current = *startp;
 	NODE *prev = NULL;
     int flag = 0;
@@ -116,6 +141,12 @@ void display(NODE *start) {
     }
     std::cout << std::endl;
 
+}
+
+void make_start(NODE *first, NODE *second) {
+    first->start = second;
+    first->end = second;
+    first->end->next = NULL;
 }
 
 NODE *search(NODE *start, int val) {
