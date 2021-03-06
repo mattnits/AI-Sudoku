@@ -4,11 +4,14 @@
 NODE *create_node(int val, NODE *start = NULL) {
     NODE *node = (NODE*)malloc(sizeof(NODE));
     node->val = val;
+    node->end = NULL;
     if (start == NULL) {
         node->start = NULL;
     }
     else {
         node->start = start;
+        node->end = start;
+        node->end->next = NULL;
     }
     node->next = NULL;
 
@@ -69,7 +72,20 @@ void insert_sorted(NODE **startp, NODE **endp, int val) {
 }
 
 void insert_unsorted(NODE **startp, NODE **endp, int val) {
+    NODE *node = (NODE*)malloc(sizeof(NODE));
+    node->val = val;
+    node->start = NULL;
 
+    if ((*endp) != NULL) {
+        (*endp)->next = node;
+        node->next = NULL;
+        (*endp) = node;
+    }
+    else {
+        node->next = NULL;
+        *startp = node;
+        *endp = node;
+    }
 }
 
 int remove_index(NODE **startp, NODE **endp, int val) {
@@ -129,6 +145,8 @@ void display(NODE *start) {
 
 void make_start(NODE *first, NODE *second) {
     first->start = second;
+    first->end = second;
+    first->end->next = NULL;
 }
 
 NODE *search(NODE *start, int val) {
